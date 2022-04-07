@@ -15,3 +15,15 @@
   width: 90%;
   height: auto;
 }
+
+.create-input-box {
+  width: 300px;
+}
+
+.create-input-item {
+  margin-top: 2rem;
+}
+
+.required-mark {
+  color: red;
+}

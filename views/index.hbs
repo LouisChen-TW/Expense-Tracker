@@ -17,7 +17,7 @@
     class='total-amount d-flex justify-content-around align-items-center mt-3 border rounded'
   >
     <span class='h2'>總支出</span>
-    <span class='h3 text-center'>{{totalAmount}}</span>
+    <span class='h3'>{{totalAmount}}</span>
     <span><i class='fas fa-sack-dollar h2'></i></span>
   </div>
 
@@ -41,6 +41,10 @@
         </div>
       </div>
     {{/each}}
-
+  </div>
+  <div>
+    <a href='/record/new' class='btn btn-outline-warning btn-lg'><i
+        class='fas fa-plus'
+      ></i>新增紀錄</a>
   </div>
 </div>
