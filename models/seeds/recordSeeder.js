@@ -7,7 +7,7 @@ const Category = require('../category')
 const SEED_USER = require('./SEED_USER.json')
 const SEED_RECORD = require('./SEED_RECORD.json')
 
-const bcrypt = require('bcrypt')
+const bcrypt = require('bcryptjs')
 
 db.once('open', () => {
   SEED_USER.forEach((seedUser) => {
