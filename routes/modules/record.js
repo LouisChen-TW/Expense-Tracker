@@ -21,4 +21,29 @@ router.post('/new', (req, res) => {
     .catch((err) => console.log(err))
 })
 
+router.get('/:id/edit', (req, res) => {
+  const id = req.params.id
+  Record.findById(id)
+    .lean()
+    .then((record) => {
+      res.render('edit', { record })
+    })
+    .catch((err) => console.log(err))
+})
+
+router.put('/:id', (req, res) => {
+  const _id = req.params.id
+  const newRecord = req.body
+  return Record.findOneAndUpdate({ _id }, newRecord)
+    .then(() => res.redirect('/'))
+    .catch((err) => console.log(err))
+})
+
+router.delete('/:id', (req, res) => {
+  const _id = req.params.id
+  return Record.findOneAndDelete({ _id })
+    .then(() => res.redirect('/'))
+    .catch((err) => console.log(err))
+})
+
 module.exports = router

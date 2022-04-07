@@ -1,0 +1,66 @@
+<div class='container d-flex justify-content-center'>
+  <form
+    class='d-flex flex-column align-items-center'
+    action='/record/{{record._id}}?_method=PUT'
+    method='POST'
+  >
+    <h1>修改您的支出項目</h1>
+    <div class='create-input-box d-flex flex-column align-items-left'>
+      <span class='create-input-item'><span
+          class='required-mark'
+        >*</span>為必填項目</span>
+
+      <div class='create-input-item'>
+        <label for='name'><span class='required-mark'>*</span>名稱：</label>
+        <input
+          type='text'
+          id='name'
+          name='name'
+          value='{{record.name}}'
+          required
+        />
+      </div>
+      <div class='create-input-item'>
+        <label for='date'><span class='required-mark'>*</span>日期：</label>
+        <input
+          type='date'
+          id='date'
+          name='date'
+          value='{{record.date}}'
+          required
+        />
+      </div>
+      <div class='create-input-item'>
+        <label for='category'><span class='required-mark'>*</span>類別：</label>
+        <select
+          id='category'
+          name='category'
+          value='{{record.category}}'
+          required
+        >
+          <option selected disabled> 請選擇類別</option>
+          <option value='家居物業'>家居物業</option>
+          <option value='交通出行'>交通出行</option>
+          <option value='休閒娛樂'>休閒娛樂</option>
+          <option value='餐飲食品'>餐飲食品</option>
+          <option value='其他'>其他</option>
+        </select>
+      </div>
+      <div class='create-input-item'>
+        <label for='amount'><span class='required-mark'>*</span>金額：</label>
+        <input
+          type='number'
+          id='amount'
+          name='amount'
+          value='{{record.amount}}'
+          min='0'
+          required
+        />
+      </div>
+      <button
+        type='submit'
+        class='create-input-item btn btn-primary'
+      >修改支出</button>
+    </div>
+  </form>
+</div>
