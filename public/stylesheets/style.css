@@ -1,0 +1,17 @@
+.total-amount {
+  background-color: bisque;
+  width: 300px;
+}
+
+.expense-items-box {
+  width: 60%;
+  height: 400px;
+  overflow-y: scroll;
+}
+
+.expense-items-list {
+  margin-top: 10px;
+  background-color: aliceblue;
+  width: 90%;
+  height: auto;
+}

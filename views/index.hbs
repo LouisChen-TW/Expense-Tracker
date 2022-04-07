@@ -1,21 +1,58 @@
-<div class='container'>
-  sort by category
-</div>
-
-<div class='container'>
-  <h1>總金額</h1>
-  <span>99999</span>
-</div>
-
-<div class='container'>
-  <div>
-    <span><i class='fa-solid fa-house'></i></span>
-    <span>午餐</span>
-    <span>2022/1/1</span>
-    <span>$60</span>
+<div
+  class='index-page-body container d-flex flex-column justify-content-center align-items-center'
+>
+  <div class='mt-3'>
+    <select
+      class='form-select form-select-lg'
+      aria-label='Default select example'
+    >
+      <option selected>請選擇類別</option>
+      <option value='1'>One</option>
+      <option value='2'>Two</option>
+      <option value='3'>Three</option>
+    </select>
   </div>
-  <div>
-    <a href='#'>修改</a>
-    <a href='#'>刪除</a>
+
+  <div
+    class='total-amount d-flex justify-content-around align-items-center mt-3 border rounded'
+  >
+    <span class='h2'>總支出</span>
+    <span class='h3 text-center'>99999</span>
+    <span><i class='fas fa-sack-dollar h2'></i></span>
+  </div>
+
+  <div class='expense-items-box d-flex flex-column align-items-center h4 mt-3'>
+    <div
+      class='expense-items-list d-flex justify-content-between align-items-center'
+    >
+      <div class='ms-2 d-flex align-items-center'>
+        <span><i class='fa-solid fa-house fs-1'></i></span>
+        <div class='d-flex flex-column align-items-center ms-2'>
+          <span class='fs-2'>午餐</span>
+          <span class='fs-6'>2022/1/1</span>
+        </div>
+        <span class='ms-4 fs-2'>$60</span>
+      </div>
+      <div class='me-2'>
+        <a href='#' class='btn btn-info'>修改</a>
+        <a href='#' class='btn btn-danger'>刪除</a>
+      </div>
+    </div>
+    <div
+      class='expense-items-list d-flex justify-content-between align-items-center'
+    >
+      <div class='ms-2 d-flex align-items-center'>
+        <span><i class='fa-solid fa-house fs-1'></i></span>
+        <div class='d-flex flex-column align-items-center ms-2'>
+          <span class='fs-2'>午餐</span>
+          <span class='fs-6'>2022/1/1</span>
+        </div>
+        <span class='ms-4 fs-2'>$60</span>
+      </div>
+      <div class='me-2'>
+        <a href='#' class='btn btn-info'>修改</a>
+        <a href='#' class='btn btn-danger'>刪除</a>
+      </div>
+    </div>
   </div>
 </div>
