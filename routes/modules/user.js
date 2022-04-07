@@ -20,6 +20,7 @@ router.get('/register', (req, res) => {
 
 router.get('/logout', (req, res) => {
   req.logout()
+  req.flash('success_msg', '您已經成功登出！')
   res.redirect('/user/login')
 })
 
