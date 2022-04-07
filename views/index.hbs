@@ -17,42 +17,30 @@
     class='total-amount d-flex justify-content-around align-items-center mt-3 border rounded'
   >
     <span class='h2'>總支出</span>
-    <span class='h3 text-center'>99999</span>
+    <span class='h3 text-center'>{{totalAmount}}</span>
     <span><i class='fas fa-sack-dollar h2'></i></span>
   </div>
 
   <div class='expense-items-box d-flex flex-column align-items-center h4 mt-3'>
-    <div
-      class='expense-items-list d-flex justify-content-between align-items-center'
-    >
-      <div class='ms-2 d-flex align-items-center'>
-        <span><i class='fa-solid fa-house fs-1'></i></span>
-        <div class='d-flex flex-column align-items-center ms-2'>
-          <span class='fs-2'>午餐</span>
-          <span class='fs-6'>2022/1/1</span>
+    {{#each records}}
+      <div
+        class='expense-items-list d-flex justify-content-between align-items-center'
+      >
+        <div class='mx-2 d-flex align-items-center'>
+          <span><i class='{{this.categoryId.icon}}'></i></span>
+          <div class='d-flex flex-column align-items-center ms-2'>
+            <span class='fs-2'>{{this.name}}</span>
+            <span class='fs-6'>{{this.date}}</span>
+          </div>
+          <span class='ms-4 fs-2 me-1'>$</span>
+          <span class='fs-2'> {{this.amount}}</span>
         </div>
-        <span class='ms-4 fs-2'>$60</span>
-      </div>
-      <div class='me-2'>
-        <a href='#' class='btn btn-info'>修改</a>
-        <a href='#' class='btn btn-danger'>刪除</a>
-      </div>
-    </div>
-    <div
-      class='expense-items-list d-flex justify-content-between align-items-center'
-    >
-      <div class='ms-2 d-flex align-items-center'>
-        <span><i class='fa-solid fa-house fs-1'></i></span>
-        <div class='d-flex flex-column align-items-center ms-2'>
-          <span class='fs-2'>午餐</span>
-          <span class='fs-6'>2022/1/1</span>
+        <div class='me-2'>
+          <a href='#' class='btn btn-info me-2'>修改</a>
+          <a href='#' class='btn btn-danger'>刪除</a>
         </div>
-        <span class='ms-4 fs-2'>$60</span>
       </div>
-      <div class='me-2'>
-        <a href='#' class='btn btn-info'>修改</a>
-        <a href='#' class='btn btn-danger'>刪除</a>
-      </div>
-    </div>
+    {{/each}}
+
   </div>
 </div>
