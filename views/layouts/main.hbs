@@ -14,7 +14,12 @@
       src='https://kit.fontawesome.com/529a493c91.js'
       crossorigin='anonymous'
     ></script>
-    <title>我的記帳本</title>
+    {{#if isAuthenticated}}
+      <title>{{user.name}}的記帳本</title>
+    {{else}}
+      <title>我的記帳本</title>
+    {{/if}}
+
   </head>
   <body>
     <div class='container'>
