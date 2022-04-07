@@ -10,7 +10,7 @@ db.once('open', () => {
     })
   )
     .then(() => {
-      console.log('categorySeeder done.')
+      console.log('SEED_CATEGORY done.')
       db.close()
     })
     .catch((error) => console.log(error))
