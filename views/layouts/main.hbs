@@ -20,8 +20,17 @@
     <div class='container'>
       <nav class='navbar navbar-expand-lg navbar-light bg-light'>
         <div class='container-fluid'>
-          <a class='navbar-brand' href='/'>我的記帳本</a>
-          <a href='./user/login' class='btn btn-outline-success'>Login</a>
+          {{#if isAuthenticated}}
+            <a class='navbar-brand' href='/'>{{user.name}}的記帳本</a>
+          {{else}}
+            <a class='navbar-brand' href='/'>我的記帳本</a>
+          {{/if}}
+          {{#if isAuthenticated}}
+            <a href='./user/logout' class='btn btn-outline-danger'>Logout</a>
+          {{else}}
+            <a href='./user/login' class='btn btn-outline-success'>Login</a>
+
+          {{/if}}
         </div>
       </nav>
     </div>
