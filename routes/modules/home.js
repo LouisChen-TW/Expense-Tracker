@@ -21,4 +21,36 @@ router.get('/', (req, res) => {
     })
 })
 
+router.post('/', (req, res) => {
+  const userId = req.user._id
+  const selectCategoryId = req.body.categoryId
+  if (selectCategoryId) {
+    Category.find({ _id: { $ne: selectCategoryId } })
+      .lean()
+      .then((notSelectCategory) => {
+        Category.findById(selectCategoryId)
+          .lean()
+          .then((selectCategory) => {
+            return Record.find({ userId, categoryId: selectCategoryId })
+              .populate('categoryId')
+              .lean()
+              .then((selectRecords) => {
+                let totalAmount = 0
+                selectRecords.forEach(
+                  (selectRecord) => (totalAmount += selectRecord.amount)
+                )
+                res.render('index', {
+                  selectRecords,
+                  totalAmount,
+                  notSelectCategory,
+                  selectCategory,
+                })
+              })
+          })
+      })
+  } else {
+    res.redirect('/')
+  }
+})
+
 module.exports = router

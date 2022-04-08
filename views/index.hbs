@@ -6,13 +6,25 @@
       <select
         class='form-select form-select-lg'
         aria-label='Default select example'
-        name='categoryName'
+        name='categoryId'
         onchange='this.form.submit()'
       >
-        <option selected> 請選擇類別(全部)</option>
-        {{#each categories}}
-          <option value='{{this.name}}'>{{this.name}}</option>
-        {{/each}}
+        {{#if selectCategory}}
+          <option
+            value='selectCategory._id'
+            selected
+          >{{selectCategory.name}}</option>
+          <option value=''>請選擇類別(全部)</option>
+          {{#each notSelectCategory}}
+            <option value='{{this._id}}'>{{this.name}}</option>
+          {{/each}}
+        {{else}}
+          <option value='' selected> 請選擇類別(全部)</option>
+          {{#each categories}}
+            <option value='{{this._id}}'>{{this.name}}</option>
+          {{/each}}
+        {{/if}}
+
       </select>
     </form>
   </div>
@@ -26,30 +38,58 @@
   </div>
 
   <div class='expense-items-box d-flex flex-column align-items-center h4 mt-3'>
-    {{#each records}}
-      <div
-        class='expense-items-list d-flex justify-content-between align-items-center'
-      >
-        <div class='mx-2 d-flex align-items-center'>
-          <span><i class='{{this.categoryId.icon}}'></i></span>
-          <div class='d-flex flex-column align-items-center ms-2'>
-            <span class='fs-2'>{{this.name}}</span>
-            <span class='fs-6'>{{this.date}}</span>
+    {{#if selectCategory}}
+      {{#each selectRecords}}
+        <div
+          class='expense-items-list d-flex justify-content-between align-items-center'
+        >
+          <div class='mx-2 d-flex align-items-center'>
+            <span><i class='{{this.categoryId.icon}}'></i></span>
+            <div class='d-flex flex-column align-items-center ms-2'>
+              <span class='fs-2'>{{this.name}}</span>
+              <span class='fs-6'>{{this.date}}</span>
+            </div>
+            <span class='ms-4 fs-2 me-1'>$</span>
+            <span class='fs-2'> {{this.amount}}</span>
           </div>
-          <span class='ms-4 fs-2 me-1'>$</span>
-          <span class='fs-2'> {{this.amount}}</span>
+          <div class='me-2 d-flex align-items-start'>
+            <a
+              href='/record/{{this._id}}/edit'
+              class='btn btn-info d-block me-2'
+            >修改</a>
+            <form action='/record/{{this._id}}?_method=DELETE' method='POST'>
+              <button type='submit' class='btn btn-danger'>刪除</button>
+            </form>
+          </div>
         </div>
-        <div class='me-2 d-flex align-items-start'>
-          <a
-            href='/record/{{this._id}}/edit'
-            class='btn btn-info d-block me-2'
-          >修改</a>
-          <form action='/record/{{this._id}}?_method=DELETE' method='POST'>
-            <button type='submit' class='btn btn-danger'>刪除</button>
-          </form>
+      {{/each}}
+    {{else}}
+      {{#each records}}
+        <div
+          class='expense-items-list d-flex justify-content-between align-items-center'
+        >
+          <div class='mx-2 d-flex align-items-center'>
+            <span><i class='{{this.categoryId.icon}}'></i></span>
+            <div class='d-flex flex-column align-items-center ms-2'>
+              <span class='fs-2'>{{this.name}}</span>
+              <span class='fs-6'>{{this.date}}</span>
+            </div>
+            <span class='ms-4 fs-2 me-1'>$</span>
+            <span class='fs-2'> {{this.amount}}</span>
+          </div>
+          <div class='me-2 d-flex align-items-start'>
+            <a
+              href='/record/{{this._id}}/edit'
+              class='btn btn-info d-block me-2'
+            >修改</a>
+            <form action='/record/{{this._id}}?_method=DELETE' method='POST'>
+              <button type='submit' class='btn btn-danger'>刪除</button>
+            </form>
+          </div>
         </div>
-      </div>
-    {{/each}}
+      {{/each}}
+    {{/if}}
+
   </div>
   <div>
     <a href='/record/new' class='btn btn-outline-warning btn-lg'><i
