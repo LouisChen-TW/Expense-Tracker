@@ -41,9 +41,14 @@ router.put('/:id', (req, res) => {
   const _id = req.params.id
   const userId = req.user._id
   const newRecord = req.body
-  return Record.findOneAndUpdate({ _id, userId }, newRecord)
-    .then(() => res.redirect('/'))
-    .catch((err) => console.log(err))
+  Category.findOne({ name: newRecord.category })
+    .lean()
+    .then((category) => {
+      newRecord.categoryId = category._id
+      return Record.findOneAndUpdate({ _id, userId }, newRecord)
+        .then(() => res.redirect('/'))
+        .catch((err) => console.log(err))
+    })
 })
 
 router.delete('/:id', (req, res) => {
