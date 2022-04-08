@@ -24,9 +24,15 @@ router.get('/:id/edit', (req, res) => {
   const _id = req.params.id
   const userId = req.user._id
   Record.findOne({ _id, userId })
+    .populate('categoryId')
     .lean()
     .then((record) => {
-      res.render('edit', { record })
+      const selectCategory = record.categoryId.name
+      Category.find({ _id: { $ne: record.categoryId } })
+        .lean()
+        .then((category) => {
+          res.render('edit', { record, selectCategory, category })
+        })
     })
     .catch((err) => console.log(err))
 })
