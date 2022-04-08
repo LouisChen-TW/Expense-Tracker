@@ -32,9 +32,13 @@
   <div
     class='total-amount d-flex justify-content-around align-items-center mt-3 border rounded'
   >
-    <span class='h2'>總支出</span>
-    <span class='h3'>{{totalAmount}}</span>
-    <span><i class='fas fa-sack-dollar h2'></i></span>
+    <span class='fs-2 bold'>
+      {{#if selectCategory}}
+        {{selectCategory.name}}
+      {{/if}}
+      總支出</span>
+    <span class='fs-2'>{{totalAmount}}</span>
+    <span><i class='fas fa-sack-dollar fs-2'></i></span>
   </div>
 
   <div class='expense-items-box d-flex flex-column align-items-center h4 mt-3'>

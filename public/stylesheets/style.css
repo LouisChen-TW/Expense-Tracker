@@ -1,6 +1,6 @@
 .total-amount {
-  background-color: bisque;
-  width: 300px;
+  background-color: rgb(227, 199, 127);
+  min-width: 400px;
 }
 
 .expense-items-box {
