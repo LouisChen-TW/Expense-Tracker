@@ -2,15 +2,19 @@
   class='index-page-body container d-flex flex-column justify-content-center align-items-center'
 >
   <div class='mt-3'>
-    <select
-      class='form-select form-select-lg'
-      aria-label='Default select example'
-    >
-      <option selected>請選擇類別</option>
-      <option value='1'>One</option>
-      <option value='2'>Two</option>
-      <option value='3'>Three</option>
-    </select>
+    <form action='/' method='POST'>
+      <select
+        class='form-select form-select-lg'
+        aria-label='Default select example'
+        name='categoryName'
+        onchange='this.form.submit()'
+      >
+        <option selected> 請選擇類別(全部)</option>
+        {{#each categories}}
+          <option value='{{this.name}}'>{{this.name}}</option>
+        {{/each}}
+      </select>
+    </form>
   </div>
 
   <div
