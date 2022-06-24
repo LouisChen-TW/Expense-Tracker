@@ -8,7 +8,7 @@ if (process.env.NODE_ENV !== 'production') {
   require('dotenv').config()
 }
 
-const usePassport = require('./config/passport')
+const passport = require('./config/passport')
 const routes = require('./routes')
 const app = express()
 const PORT = process.env.PORT || 3000
@@ -22,15 +22,16 @@ app.use(
   session({
     secret: process.env.SESSION_SECRET,
     resave: false,
-    saveUninitialized: true,
+    saveUninitialized: true
   })
 )
+app.use(passport.initialize())
+app.use(passport.session())
 
 app.use(express.static('public'))
 app.use(express.urlencoded({ extended: true }))
 app.use(methodOverride('_method'))
 
-usePassport(app)
 app.use(flash())
 
 app.use((req, res, next) => {
