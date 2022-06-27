@@ -1,7 +1,7 @@
 const express = require('express')
 const router = express.Router()
-const homeController = require('../../controllers/home-controller')
+const recordController = require('../../controllers/record-controller')
 
-router.get('/', homeController.getAllRecords)
+router.get('/', recordController.getAllRecords)
 
 module.exports = router

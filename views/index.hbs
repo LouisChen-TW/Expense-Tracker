@@ -30,7 +30,7 @@
   >
     <span class='fs-2 bold'>
       {{#if categoryId}}
-        {{records.0.categoryId.name}}
+        {{selectCategory.name}}
       {{else}}
         全部
       {{/if}}
@@ -94,7 +94,7 @@
 
   </div>
   <div>
-    <a href='/record/new' class='btn btn-outline-warning btn-lg'><i
+    <a href='/record/create' class='btn btn-outline-warning btn-lg'><i
         class='fas fa-plus'
       ></i>新增紀錄</a>
   </div>

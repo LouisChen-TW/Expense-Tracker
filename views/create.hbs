@@ -1,7 +1,7 @@
 <div class='container d-flex justify-content-center'>
   <form
     class='d-flex flex-column align-items-center'
-    action='/record/new'
+    action='/record'
     method='POST'
   >
     <h1>請輸入您的支出</h1>
@@ -19,14 +19,14 @@
         <input type='date' id='date' name='date' required />
       </div>
       <div class='create-input-item'>
-        <label for='category'><span class='required-mark'>*</span>類別：</label>
-        <select id='category' name='category' required>
+        <label for='categoryId'><span
+            class='required-mark'
+          >*</span>類別：</label>
+        <select id='categoryId' name='categoryId' required>
           <option value=''> 請選擇類別</option>
-          <option value='家居物業'>家居物業</option>
-          <option value='交通出行'>交通出行</option>
-          <option value='休閒娛樂'>休閒娛樂</option>
-          <option value='餐飲食品'>餐飲食品</option>
-          <option value='其他'>其他</option>
+          {{#each categories}}
+            <option value='{{this._id}}'>{{this.name}}</option>
+          {{/each}}
         </select>
       </div>
       <div class='create-input-item'>
