@@ -10,12 +10,16 @@ if (process.env.NODE_ENV !== 'production') {
 
 const passport = require('./config/passport')
 const routes = require('./routes')
+const handlebarHelper = require('./utils/handlebarHelper')
 const app = express()
 const PORT = process.env.PORT || 3000
 
 require('./config/mongoose')
 
-app.engine('hbs', exphbs({ defaultLayout: 'main', extname: '.hbs' }))
+app.engine(
+  'hbs',
+  exphbs({ defaultLayout: 'main', extname: '.hbs', helpers: handlebarHelper })
+)
 app.set('view engine', 'hbs')
 
 app.use(
