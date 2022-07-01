@@ -2,8 +2,6 @@
 
 ---
 
-## 預覽圖片(Preview photos)
-
 ![](./public/images/homepage.png)
 ![](./public/images/loginpage.png)
 
@@ -57,10 +55,12 @@
 
 #### 置換.env.example 資料
 
-若有需要測試 Facebook 登入，請將.env.example 的副檔名(.example)刪除
+若有需要測試 Facebook & Google 登入，請將.env.example 的副檔名(.example)刪除
 並將內容，抽換成欲測試的開發人員資料
 FACEBOOK_ID=XXX
 FACEBOOK_SECRET=XXX
+GOOGLE_CLIENT_ID=XXX
+GOOGLE_CLIENT_SECRET=XXX
 
 ### 開發工具
 
@@ -75,6 +75,7 @@ FACEBOOK_SECRET=XXX
 - bcryptjs 2.4.3
 - Passport 0.5.2
 - Passport-facebook 3.0.0
+- passport-google-oauth20: 2.0.0
 - Passport-local 1.0.0
 - connect-flash 0.1.1
 - dotenv 16.0.0
